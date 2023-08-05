@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.main_heading {
+    font-family: 'Montserrat', sans-serif;
+    color: purple;
+
+}
+
+
+
+
+
+.main_parent_div {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    
+
+}
+
+
+
+.main_parent_div_dark {
+    background-color: #1b191d;
+
+}
+
+
+.form {
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 30rem;
+
+    margin: 0 !important
+    
+}
+
+
+
+.logo_img_signin_page {
+    width: 8rem;
+    height: 8rem;
+
+}
+
+
+
+Button {
+    font-size: 1.1rem !important;
+    font-weight: normal !important;
+    font-style: bold !important
+}
+
+
+
+
+
+.google_btn {
+    /* font-family: 'Montserrat', sans-serif !important; */
+    gap: 0.5rem;
+    /* background-color: white !important; */
+    font-size: 1.1rem !important;
+    font-style: bold !important;
+
+    color: #0a070b !important;
+
+}
+
+
+.google_btn_light {
+    /* background-color: rgb(73, 73, 73) !important; */
+    box-shadow: none !important;
+    color: white !important;
+}
+
+
+
+.disabled_link {
+    pointer-events: none;
+}
+
+
+
+
+.white {
+    color: white;
+}
+
+
+.black {
+    color: black;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .form {
+        width: 90%;
+
+    }
+
+    .google_btn {
+        /* font-family: 'Montserrat', sans-serif !important */
+        gap: 0;
+
+        font-size: 0.9rem !important;
+        font-style: none !important
+    }
+
+    .main_parent_div {
+        gap: 3rem;
+    }
+
+    TextField {
+        font-size: large !important;
+
+    }
+
+
+
+
+}
