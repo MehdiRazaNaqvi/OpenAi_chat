@@ -48,9 +48,9 @@ function App() {
         const token = credential.accessToken;
 
         const user = result.user;
-        navigate("/OpenAi_chat/conversation")
+        // navigate("/OpenAi_chat/conversation")
         setLoading(false)
-        dispatch(login(user))
+        // dispatch(login(user))
 
 
       }).catch((error) => {
