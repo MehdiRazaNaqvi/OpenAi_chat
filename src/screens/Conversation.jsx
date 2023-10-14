@@ -145,7 +145,7 @@ function App() {
   useEffect(() => {
 
 
-    !state?.currentUser?.uid ? navigate("/OpenAi_chat/signin") : fetch_chat()
+    !state?.currentUser?.uid ? navigate("/openAi_chat/signin") : fetch_chat()
 
     divRef.current.scrollIntoView({ behavior: 'smooth' });
 

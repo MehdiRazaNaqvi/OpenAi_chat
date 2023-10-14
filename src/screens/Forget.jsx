@@ -165,8 +165,8 @@ function App() {
 
         <span className='flex item-center justify-between' style={{ color: "blue", width: '100%' }}>
 
-          <Link to="/OpenAi_chat/signin" className={loading && "disabled_link"}>Sign in here</Link>
-          <Link to="/OpenAi_chat/signup" className={loading && "disabled_link"}>Sign up here</Link>
+          <Link to="/openAi_chat/signin" className={loading && "disabled_link"}>Sign in here</Link>
+          <Link to="/openAi_chat/signup" className={loading && "disabled_link"}>Sign up here</Link>
         </span>
 
 

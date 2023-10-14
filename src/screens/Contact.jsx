@@ -168,7 +168,7 @@ function App() {
 
 
         <Button disabled={loading} type="submit" fullWidth size='large' color="secondary" variant="contained">Send Us</Button>
-        <Button onClick={() => navigate("/OpenAi_chat/conversation")} disabled={loading} type="button" fullWidth size='large' color="inherit" variant="contained">Go Back</Button>
+        <Button onClick={() => navigate("/openAi_chat/conversation")} disabled={loading} type="button" fullWidth size='large' color="inherit" variant="contained">Go Back</Button>
 
 
 

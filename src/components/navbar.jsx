@@ -135,7 +135,7 @@ export default function PrimarySearchAppBar({ arhamic, setArhamic }) {
         >
 
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-            <MenuItem onClick={() => { handleMenuClose(); dispatch(logout()); navigate("/OpenAi_chat/signin") }}>Log out</MenuItem>
+            <MenuItem onClick={() => { handleMenuClose(); dispatch(logout()); navigate("/openAi_chat/signin") }}>Log out</MenuItem>
 
         </Menu>
     );
@@ -160,7 +160,7 @@ export default function PrimarySearchAppBar({ arhamic, setArhamic }) {
             onClose={handleMenuClose}
         >
 
-            <MenuItem onClick={() => { navigate("/OpenAi_chat/contactUs"); handleMenuClose() }}>Contact Us</MenuItem>
+            <MenuItem onClick={() => { navigate("/openAi_chat/contactUs"); handleMenuClose() }}>Contact Us</MenuItem>
 
         </Menu>
     );

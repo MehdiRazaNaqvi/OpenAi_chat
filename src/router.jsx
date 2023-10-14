@@ -27,12 +27,12 @@ const App = () => {
         <Router>
 
             <Routes>
-                <Route path="/OpenAi_chat" element={<Authenticate />} />
-                <Route path="/OpenAi_chat/signin" element={<ThemeProvider theme={darkMode && darkTheme} > <Login /> </ThemeProvider>} />
-                <Route path="/OpenAi_chat/contactUs" element={<ThemeProvider theme={darkMode && darkTheme} > <Contact /> </ThemeProvider>} />
-                <Route path="/OpenAi_chat/forgetPassword" element={<ThemeProvider theme={darkMode && darkTheme} > <ForgetPassword /> </ThemeProvider>} />
-                <Route path="/OpenAi_chat/signup" element={<ThemeProvider theme={darkMode && darkTheme} > <Signup /> </ThemeProvider>} />
-                <Route path="/OpenAi_chat/conversation" element={<ThemeProvider theme={darkMode && darkTheme} > <Conversation /> </ThemeProvider>} />
+                <Route path="/openAi_chat" element={<Authenticate />} />
+                <Route path="/openAi_chat/signin" element={<ThemeProvider theme={darkMode && darkTheme} > <Login /> </ThemeProvider>} />
+                <Route path="/openAi_chat/contactUs" element={<ThemeProvider theme={darkMode && darkTheme} > <Contact /> </ThemeProvider>} />
+                <Route path="/openAi_chat/forgetPassword" element={<ThemeProvider theme={darkMode && darkTheme} > <ForgetPassword /> </ThemeProvider>} />
+                <Route path="/openAi_chat/signup" element={<ThemeProvider theme={darkMode && darkTheme} > <Signup /> </ThemeProvider>} />
+                <Route path="/openAi_chat/conversation" element={<ThemeProvider theme={darkMode && darkTheme} > <Conversation /> </ThemeProvider>} />
                 <Route path="/*" element={<ThemeProvider theme={darkMode && darkTheme} > <Login /> </ThemeProvider>} />
 
             </Routes>

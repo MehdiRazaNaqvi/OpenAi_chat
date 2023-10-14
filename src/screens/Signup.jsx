@@ -48,7 +48,7 @@ function App() {
 
         const user = result.user;
 
-        navigate("/OpenAi_chat/conversation")
+        navigate("/openAi_chat/conversation")
         setLoading(false)
         dispatch(login(user))
 
@@ -82,7 +82,7 @@ function App() {
           displayName: info.name
         }).then(() => {
           // Profile updated!
-          navigate("/OpenAi_chat/signin")
+          navigate("/openAi_chat/signin")
           setLoading(false)
           // ...
         }).catch((error) => {
@@ -277,7 +277,7 @@ function App() {
 
         <span className='flex item-center justify-end' style={{ color: "blue", width: '100%' }}>
           {/* <Link to="/forgetPassword">Forget your password?</Link> */}
-          <Link to="/OpenAi_chat/signin" className={loading && "disabled_link"} >Sign in here</Link>
+          <Link to="/openAi_chat/signin" className={loading && "disabled_link"} >Sign in here</Link>
         </span>
 
 
