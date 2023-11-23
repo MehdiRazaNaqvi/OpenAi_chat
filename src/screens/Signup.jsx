@@ -21,7 +21,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import PersonIcon from '@mui/icons-material/Person';
-
+import axios from 'axios';
 
 import React from "react"
 
@@ -48,9 +48,9 @@ function App() {
 
         const user = result.user;
 
-        navigate("/openAi_chat/conversation")
+        // navigate("/openAi_chat/conversation")
         setLoading(false)
-        dispatch(login(user))
+        // dispatch(login(user))
 
 
       }).catch((error) => {
@@ -70,44 +70,47 @@ function App() {
 
   const createUser = () => {
     setLoading(true)
+    axios.post(`https://staging.ancestrypass.com/api/auth/local/register`, { email: info.email, username: info.name, confirmed: true, password: info.password })
+      .then((res) => {
+        if (res.status === 200) {
 
+          navigate("/openAi_chat/conversation")
+          setShowAlert({ open: true, text: `Congrats ${info?.name && info?.name}, Now login to your accoount`, severity: "success" })
 
-    createUserWithEmailAndPassword(auth, info.email, info.password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log("success", user)
+          // dispatch(login(res.data))
+        }
 
-        updateProfile(auth.currentUser, {
-          displayName: info.name
-        }).then(() => {
-          // Profile updated!
-          navigate("/openAi_chat/signin")
-          setLoading(false)
-          // ...
-        }).catch((error) => {
-          // An error occurred
-          // ...
-        });
-
-
-
+        setLoading(false)
 
 
       })
+
+
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage)
-        setShowAlert({ open: true, text: errorMessage, severity: "error" })
+        setShowAlert({ open: true, text: error?.response?.data?.error?.message || "Something went wrong", severity: "secondary" })
         setLoading(false)
+        console.log(error)
 
       });
 
 
+    // signInWithEmailAndPassword(auth, info.email, info.password)
+    //   .then((userCredential) => {
+    //     // navigate("/chat")
+    //     const user = userCredential.user;
+    //     navigate("/openAi_chat/conversation")
+    //     setLoading(false)
+    //     dispatch(login(user))
 
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     setShowAlert({ open: true, text: errorMessage, severity: "error" })
+    // setLoading(false)
+
+    // });
   }
-
 
   const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;

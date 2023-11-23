@@ -9,7 +9,7 @@ const App = () => {
 
 
     useEffect(() => {
-        state?.currentUser?.uid ? navigate("/openAi_chat/conversation") : navigate("/openAi_chat/signin")
+        state?.currentUser?.jwt ? navigate("/openAi_chat/conversation") : navigate("/openAi_chat/signin")
 
 
     }, [navigate])

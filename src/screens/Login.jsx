@@ -28,6 +28,7 @@ import { login, switchMode } from '../store/counterSlice';
 
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import axios from 'axios';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
         const user = result.user;
         // navigate("/openAi_chat/conversation")
         setLoading(false)
+
         // dispatch(login(user))
 
 
@@ -82,27 +84,50 @@ function App() {
   const [showalert, setShowAlert] = useState({ open: false, text: "", severity: "" })
   const [info, setInfo] = useState({ email: "", password: "" })
 
-
+  console.log(process.env.STAGING_SERVER)
 
   const loginUser = () => {
-
     setLoading(true)
-    signInWithEmailAndPassword(auth, info.email, info.password)
-      .then((userCredential) => {
-        // navigate("/chat")
-        const user = userCredential.user;
-        navigate("/openAi_chat/conversation")
+    axios.post(`https://staging.ancestrypass.com/api/auth/local`, { identifier: info.email, password: info.password })
+      .then((res) => {
+        console.log(res)
+        if (res.status === 200) {
+
+          navigate("/openAi_chat/conversation")
+          setShowAlert({ open: true, text: res.data?.data?.user?.username, severity: "success" })
+
+          dispatch(login(res.data))
+          console.log("/openAi_chat/conversation")
+        }
+
         setLoading(false)
-        dispatch(login(user))
 
       })
+
+
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setShowAlert({ open: true, text: errorMessage, severity: "error" })
+        setShowAlert({ open: true, text: error?.response?.data?.error?.message || "Something went wrong", severity: "secondary" })
         setLoading(false)
 
       });
+
+
+    // signInWithEmailAndPassword(auth, info.email, info.password)
+    //   .then((userCredential) => {
+    //     // navigate("/chat")
+    //     const user = userCredential.user;
+    //     navigate("/openAi_chat/conversation")
+    //     setLoading(false)
+    //     dispatch(login(user))
+
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     setShowAlert({ open: true, text: errorMessage, severity: "error" })
+    // setLoading(false)
+
+    // });
   }
 
 
@@ -113,7 +138,7 @@ function App() {
   return (
 
 
-    <Card sx={{ position: "relative", paddingTop:"2rem" }} className={state?.darkMode ? 'main_parent_div main_parent_div_dark' : 'main_parent_div'}>
+    <Card sx={{ position: "relative", paddingTop: "2rem" }} className={state?.darkMode ? 'main_parent_div main_parent_div_dark' : 'main_parent_div'}>
 
       <IconButton
         sx={{ position: "absolute", top: "2rem", right: "2rem" }}
