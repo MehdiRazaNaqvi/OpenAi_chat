@@ -19,7 +19,6 @@ import { switchMode, logout } from '../store/counterSlice';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Logo from '../asset/logo.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import PublicIcon from '@mui/icons-material/Public';
 import TranslateIcon from '@mui/icons-material/Translate';
 import * as XLSX from 'xlsx';
@@ -30,7 +29,6 @@ import * as XLSX from 'xlsx';
 
 
 export default function PrimarySearchAppBar({ arhamic, setArhamic }) {
-
 
     const state = useSelector(state => state.counter)
 

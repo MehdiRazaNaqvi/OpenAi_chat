@@ -5,6 +5,9 @@ import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from "../store/counterSlice"
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -15,6 +18,8 @@ const navigation = [
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   return (
     <div className="bg-white">
@@ -48,7 +53,7 @@ export default function Example() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/openAi_chat/signin" className="text-sm font-semibold leading-6 text-gray-900">
+            <a onClick={() => { navigate("/signin"); dispatch(logout()) }} href="/openAi_chat/signin" className="text-sm font-semibold leading-6 text-gray-900">
               Logout <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
