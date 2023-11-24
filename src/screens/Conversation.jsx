@@ -53,7 +53,7 @@ export default function Example() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a onClick={() => { navigate("/signin"); dispatch(logout()) }} href="/openAi_chat/signin" className="text-sm font-semibold leading-6 text-gray-900">
+            <a onClick={() => { navigate("/"); dispatch(logout()) }} href="/openAi_chat/signin" className="text-sm font-semibold leading-6 text-gray-900">
               Logout <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
